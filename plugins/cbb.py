@@ -45,7 +45,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         )
     elif data == "premium":
         await query.message.edit_text(
-            text=f"Premium Benefits & Perks\nDirect Channel Links, No Ad Links\nSpecial Access In Events\n\nPricing Rates\n1 Day - ₹10 Only\n7 Days - ₹70\n1 Month - ₹150 (50% Discount)\n3 Months - ₹250 (72% Discount) [Popular]\n\nWant To Buy?\nPay Using UPI »»» <code>soutick@fam</code>\nSend Screenshot to @Soutick_09\n\nWe Have Limited Seats For Premium Users",
+            text=f"✨ Exclusive Premium Membership ✨\n<i>Unlock a World of Benefits Just for You!</i>\n\n🔥 Premium Perks:\n<i>✔️ Direct Channel Links – No Ads, No Distractions!</i>\n<i>✔️ Special Access to Exclusive Events & Content</i>\n<i>✔️ Faster Support & Priority Assistance</i>\n\n💭 Plus: You'll get direct access to these channels with any of these plans!\n[<a href=https://graph.org/AIO-Backup-12-22-2>List of Channels</a>]\n\n💰 Affordable Pricing:\n              ○ 1 Day: <code>INR 10</code>\n              ○ 7 Days: <code>INR 40</code>\n              ○ 1 Month: <code>INR 100</code>\n              ○ 3 Months: <code>INR 200</code>\n\nReady to Upgrade?💓\n» Message @Soutick_09 to get UPI or QR Code for payment.\n» Send a screenshot of your payment to @Soutick_09 <i>(for Auto Verification)</i>.\n\n⚡ Seats are LIMITED for Premium Members – Grab Yours Now!",
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
