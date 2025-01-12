@@ -73,7 +73,7 @@ USER_REPLY_TEXT = "<i>What Do You Think that I am Your Notepad? Why You Message 
 
 AUTO_DEL = os.environ.get("AUTO_DEL", "True")
 DEL_TIMER = int(os.environ.get("DEL_TIMER", "120"))
-DEL_MSG = ""
+DEL_MSG = """<b>Made With ♥️ By <a href=https://t.me/AIO_Backup>AIO Backup</a></b>"""
 
 ADMINS.append(OWNER_ID)
 ADMINS.append(5827289728)
