@@ -7,25 +7,25 @@ from logging.handlers import RotatingFileHandler
 
 
 #Bot token @Botfather
-TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "7605638686:AAFKKl61lf8M26SRHRCzH644BorMnfHLzIo")
+TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "123456789:AAFKKl61lf8M26SRHRCzH644BorMnfHLzIo")
 
 #Your API ID from my.telegram.org
-APP_ID = int(os.environ.get("APP_ID", "28450765"))
+APP_ID = int(os.environ.get("APP_ID", "07533650765"))
 
 #Your API Hash from my.telegram.org
-API_HASH = os.environ.get("API_HASH", "36f00f11f9d5c65e69b81fd804453a93")
+API_HASH = os.environ.get("API_HASH", "36f8644f9d5c65e69b81fd804453a93")
 
 #Your db channel Id
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002377657105"))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-00000"))
 
 #OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", "5827289728"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "0000"))
 
 #Port
 PORT = os.environ.get("PORT", "8080")
 
 #Database 
-DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://Mizuhara:Mizuhara@cluster0.3uq9p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DB_URI = os.environ.get("DATABASE_URL", "mongodb+srv://0:0@cluster0.3uq9p.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DB_NAME = os.environ.get("DATABASE_NAME", "Cluster0")
 
 #force sub channel id, if you want enable force sub
@@ -66,7 +66,7 @@ DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True
 
 #Short Url or Api
 SHORT_URL = os.environ.get("SHORTNER_URL", "shortxlinks.com")
-SHORT_API = os.environ.get("SHORTNER_API", "26df87ec5ff94513380db28b159e1e3642896608")
+SHORT_API = os.environ.get("SHORTNER_API", "26df094513380db28b159e1e3642896608")
 
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
 USER_REPLY_TEXT = "<i>What Do You Think that I am Your Notepad? Why You Message Here?</i>"
