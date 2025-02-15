@@ -1,8 +1,8 @@
 import os
 import asyncio
-from pyrogram import Client, filters
+from pyrogram import Client, filters, __version__
 from pyrogram.enums import ParseMode
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import FloodWait, UserIsBlocked, InputUserDeactivated
 
 from bot import Bot
@@ -12,19 +12,16 @@ from database.database import add_user, del_user, full_userbase, present_user, i
 from plugins.shorturl import get_short
 from plugins.autodel import convert_time
 
-
 async def delete_message(msg, delay_time):
-    if AUTO_DEL.lower() == "true":
-        await asyncio.sleep(delay_time)
+    if AUTO_DEL.lower() == "true": 
+        await asyncio.sleep(delay_time)    
         await msg.delete()
-
 
 async def auto_del_notification(client, msg, delay_time):
-    if AUTO_DEL.lower() == "true":
-        await msg.reply_text(DEL_MSG.format(time=convert_time(DEL_TIMER)))
+    if AUTO_DEL.lower() == "true":  
+        await msg.reply_text(DEL_MSG.format(time=convert_time(DEL_TIMER))) 
         await asyncio.sleep(delay_time)
         await msg.delete()
-
 
 @Bot.on_message(filters.command('start') & filters.private & subscribed)
 async def start_command(client: Client, message: Message):
@@ -40,8 +37,8 @@ async def start_command(client: Client, message: Message):
     if len(text) > 7:
         try:
             basic = text.split(" ", 1)[1]
-            if basic.startswith("By_AIO_Backup_"):
-                base64_string = basic[len("By_AIO_Backup_"):-len("_Enjoy")]
+            if basic.startswith("yu3elk"):
+                base64_string = basic[6:-1]
             else:
                 base64_string = text.split(" ", 1)[1]
 
@@ -50,7 +47,7 @@ async def start_command(client: Client, message: Message):
             return
 
         is_user_premium = await is_premium(user_id)
-        if not is_user_premium and user_id != OWNER_ID and not basic.startswith("By_AIO_Backup_"):
+        if not is_user_premium and user_id != OWNER_ID and not basic.startswith("yu3elk"):
             await short_url(client, message, base64_string)
             return
 
@@ -89,7 +86,7 @@ async def start_command(client: Client, message: Message):
         await temp_msg.delete()
 
         for idx, msg in enumerate(messages):
-            if bool(CUSTOM_CAPTION) and bool(msg.document):
+            if bool(CUSTOM_CAPTION) & bool(msg.document):
                 caption = CUSTOM_CAPTION.format(previouscaption="" if not msg.caption else msg.caption.html,
                                                 filename=msg.document.file_name)
             else:
@@ -102,7 +99,7 @@ async def start_command(client: Client, message: Message):
 
             try:
                 copied_msg = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML,
-                                            reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
+                               reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
                 await asyncio.sleep(0.5)
                 asyncio.create_task(delete_message(copied_msg, DEL_TIMER))
                 if idx == len(messages) - 1 and AUTO_DEL:
@@ -110,7 +107,7 @@ async def start_command(client: Client, message: Message):
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 copied_msg = await msg.copy(chat_id=message.from_user.id, caption=caption, parse_mode=ParseMode.HTML,
-                                            reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
+                               reply_markup=reply_markup, protect_content=PROTECT_CONTENT)
                 await asyncio.sleep(0.5)
                 asyncio.create_task(delete_message(copied_msg, DEL_TIMER))
                 if idx == len(messages) - 1 and AUTO_DEL:
@@ -140,15 +137,22 @@ async def start_command(client: Client, message: Message):
                     id=message.from_user.id
                 ),
                 reply_markup=reply_markup,
+
             )
         except Exception as e:
             print(f"Error replying to message: {e}")
         return
 
 
+#=====================================================================================##
+
+WAIT_MSG = "<b>Working....</b>"
+REPLY_ERROR = "<code>Use this command as a reply to any telegram message without any spaces.</code>"
+
+#=====================================================================================##
 async def short_url(client: Client, message: Message, base64_string):
     try:
-        prem_link = f"https://t.me/{client.username}?start=By_AIO_Backup_{base64_string}_Enjoy"
+        prem_link = f"https://t.me/{client.username}?start=yu3elk{base64_string}7"
         short_link = get_short(prem_link)
 
         buttons = [
@@ -157,7 +161,7 @@ async def short_url(client: Client, message: Message, base64_string):
                 InlineKeyboardButton(text="TUTORIAL", url="https://t.me/HowToDownload_09/27")
             ],
             [
-                InlineKeyboardButton(text="PREMIUM", callback_data="premium")
+                InlineKeyboardButton(text="⚡ PREMIUM ⚡", callback_data="premium")
             ]
         ]
 
@@ -169,7 +173,6 @@ async def short_url(client: Client, message: Message, base64_string):
 
     except IndexError:
         pass
-
 
 
 @Bot.on_message(filters.command('start') & filters.private)
