@@ -65,8 +65,8 @@ PROTECT_CONTENT = True if os.environ.get('PROTECT_CONTENT', "False") == "True" e
 DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == 'True'
 
 #Short Url or Api
-SHORT_URL = os.environ.get("SHORTNER_URL", "speedlinkurl.com")
-SHORT_API = os.environ.get("SHORTNER_API", "f057d06e680b696948fd121f6335ea77744f58f4")
+SHORT_URL = os.environ.get("SHORTNER_URL", "shortxlinks.com")
+SHORT_API = os.environ.get("SHORTNER_API", "26df87ec5ff94513380db28b159e1e3642896608")
 
 BOT_STATS_TEXT = "<b>BOT UPTIME</b>\n{uptime}"
 USER_REPLY_TEXT = "<i>What Do You Think that I am Your Notepad? Why You Message Here?</i>"
